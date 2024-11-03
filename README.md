@@ -30,7 +30,7 @@ This project explores questions such as:
 
 ## Installation
 Clone the Repository
-* git clone https://github.com/your-username/startup-funding-analysis.git
+* git clone[ https://github.com/your-username/startup-funding-analysis.git](https://github.com/deepkothari12/StartupDataAnalysis.git)
 
 Install Dependencies
 * pip install -r requirements.txt

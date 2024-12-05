@@ -152,10 +152,16 @@ def startup(s_name):
         st.metric("InvestmentnType" , s_investor)
     with col6:
         ver = str(df[df['Startup'] == s_name]['SubVertical'].values[0])
-        si_name1 = str(df[df['SubVertical'].isin([ver])]['Startup'].values[0])
-        si_name2 = str(df[df['SubVertical'].isin([ver])]['Startup'].values[1])
-        si_name3 = str(df[df['SubVertical'].isin([ver])]['Startup'].values[2])
-        st.metric("Similar Comapny" , si_name1 + ","+ " "+ si_name2 +","+ " " + si_name3 )
+        #st.write(ver)
+        
+        try:
+            si_name1 = str(df[df['SubVertical'].isin([ver])]['Startup'].values[0])
+            si_name2 = str(df[df['SubVertical'].isin([ver])]['Startup'].values[1])
+            si_name3 = str(df[df['SubVertical'].isin([ver])]['Startup'].values[2])
+            st.metric("Similar Comapny" , si_name1 + ","+ " "+ si_name2 +","+ " " + si_name3 )
+        except :
+            st.write("No Recommendation")
+        
     
         
 

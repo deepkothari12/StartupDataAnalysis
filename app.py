@@ -8,7 +8,7 @@ df = pd.read_csv('clean_startup.csv')
 
 st.sidebar.title("Startup Funding")
 # st.sidebar.subheader("logX")
-option = st.sidebar.selectbox("Select One" , ['OverAll' , "Startupss" , "Invester"])
+option = st.sidebar.selectbox("Select One" , ['OverAlll' , "Startupss" , "Invester"])
 
 
 def load_investor(investor):

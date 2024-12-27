@@ -26,7 +26,7 @@ def load_investor(investor):
         st.subheader("Investment Type")
         stages = df[df['Investors Name'].str.contains(investor)].groupby(df['InvestmentnType'])['CR'].sum().sort_values(ascending=False)
         fig , ax = plt.subplots()
-        ax.pie(stages, autopct='%1.2f%%' , labels=stages.index)
+        ax.pie(stages, autopct='%1.2f%%' , labels=stages.index) # type: ignore
         st.pyplot(fig)
 
     col1 , col2 = st.columns(2)
@@ -36,7 +36,7 @@ def load_investor(investor):
         big_series = df[df['Investors Name'].str.contains(investor)].groupby(['Startup'])['CR'].max().sort_values(ascending=False).head(5)
         
         fig , ax = plt.subplots()
-        ax.bar(big_series.index , big_series.values )
+        ax.bar(big_series.index , big_series.values ) # type: ignore
 
         st.pyplot(fig)
 
@@ -46,7 +46,7 @@ def load_investor(investor):
         sector = df[df['Investors Name'].str.contains(investor)].groupby(df['Industry Vertical'])['CR'].sum().sort_values(ascending=False).head(5)
 
         fig , ax = plt.subplots()
-        ax.pie(sector, autopct='%1.2f%%' , labels=sector.index)
+        ax.pie(sector, autopct='%1.2f%%' , labels=sector.index) # type: ignore
 
         st.pyplot(fig)
     col3 , col4 = st.columns(2)
@@ -100,31 +100,31 @@ def overallAna():
         if select_type_pie == "Top-5":
             top_5 = round(df.groupby(df['Industry Vertical'])['CR'].sum().sort_values(ascending=False).head(5))
             fig , ax = plt.subplots()
-            ax.pie(top_5 , labels = top_5.index , autopct='%1.2f%%')
+            ax.pie(top_5 , labels = top_5.index , autopct='%1.2f%%') # type: ignore # type: ignore
             st.pyplot(fig)
         elif select_type_pie == "Top-8":
             top_8 = round(df.groupby(df['Industry Vertical'])['CR'].sum().sort_values(ascending=False).head(8))
             fig , ax = plt.subplots()
-            ax.pie(top_8 , labels = top_8.index , autopct='%1.2f%%')
+            ax.pie(top_8 , labels = top_8.index , autopct='%1.2f%%') # type: ignore
             st.pyplot(fig)
         else :
             top_10 = round(df.groupby(df['Industry Vertical'])['CR'].sum().sort_values(ascending=False).head(10))
             fig , ax = plt.subplots()
-            ax.pie(top_10 , labels = top_10.index , autopct='%1.2f%%')
+            ax.pie(top_10 , labels = top_10.index , autopct='%1.2f%%') # type: ignore
             st.pyplot(fig)
     col7 , col8 = st.columns(2)
     with col7:
         st.subheader("Top Investor")
         top_investor = df.groupby(df['Investors Name'])['CR'].sum().sort_values(ascending=False).head(5)
         fig , ax = plt.subplots()
-        ax.bar(top_investor.index , top_investor.values)
+        ax.bar(top_investor.index , top_investor.values) # type: ignore
         plt.xticks(rotation = 'vertical')
         st.pyplot(fig)
     with col8:
         st.subheader("top 5 City With Big Investment")
         h = round(df.groupby(df['City'])['CR'].sum().sort_values(ascending=False).head(5))
         fig , ax = plt.subplots()
-        ax.bar(h.index , h.values)
+        ax.bar(h.index , h.values) # type: ignore
         st.pyplot(fig)
 
 
